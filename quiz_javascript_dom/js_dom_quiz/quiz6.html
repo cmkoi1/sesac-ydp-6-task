@@ -101,6 +101,28 @@
         '뮤! 넌 내거야',
         '오레오 쿠키 앤 크림',
       ];
+
+      icecreams.forEach((icecream, i) => {
+        let newArticle = document.createElement("article");
+        let newImg = document.createElement("img");
+        let newH3 = document.createElement("h3");
+        let newDiv = document.createElement("div");
+
+        newArticle.classList.add("article-box");
+        newImg.classList.add("img-box");
+        newH3.classList.add("text-center");
+        newDiv.classList.add("text-center");
+
+        newImg.setAttribute("src", `./image/icecream${i+1}.png`)
+        newH3.textContent = `Top${i+1}`
+        newDiv.textContent = icecream;
+
+        section.appendChild(newArticle);
+        newArticle.appendChild(newImg);
+        newArticle.appendChild(newH3);
+        newArticle.appendChild(newDiv);
+      });
+
     </script>
   </body>
 </html>

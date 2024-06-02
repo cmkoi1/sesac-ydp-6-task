@@ -38,6 +38,17 @@
 
     <script>
       // TODO: 문제 조건을 만족하는 js 코드 작성
+      let spanAll = document.querySelectorAll(".container div span");
+      spanAll.forEach((span) => {
+        span.style.color = "blueviolet";
+        span.style.fontWeight = "900";
+      });
+
+      let containers = document.querySelector(".container");
+      containers.style.backgroundColor = "#eee";
+      containers.style.display = "flex";
+      containers.style.flexDirection = "column";
+      containers.style.alignItems = "center";
     </script>
   </body>
 </html>

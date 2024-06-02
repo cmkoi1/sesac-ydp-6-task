@@ -67,6 +67,18 @@
     <script>
       // TODO: 문제 조건을 만족하는 js 코드 작성
       // (참고) done 클래스와 todo 클래스에 대한 스타일시트는 haed > style 태그에 이미 정의되어 있습니다.
+    
+      let todos = document.querySelectorAll(".done");
+      let dones = document.querySelectorAll(".todo");
+
+      todos.forEach(element => {
+        element.classList.add("todo");
+        element.classList.remove("done");
+      });
+      dones.forEach(element => {
+        element.classList.add("done");
+        element.classList.remove("todo");
+      });
     </script>
   </body>
 </html>
