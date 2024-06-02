@@ -30,7 +30,34 @@
       // cal(), reset() 함수를 미리 정의해두었습니다.
 
       // [계산] 버튼 클릭시 cal() 함수가 실행되도록 인라인 방식으로 미리 설정해 두었습니다.
-      function cal() {}
+      function cal() {
+        let val1 = Number(document.getElementById("value1").value);
+        let val2 = Number(document.getElementById("value2").value);
+        let opr = document.getElementById("operator").value;
+        let val3 = 0;
+
+        if (val1 && val2) {
+          if (opr === "+") {
+            val3 = val1 + val2;
+          } else if (opr === "-") {
+            val3 = val1 - val2;
+          } else if (opr === "*") {
+            val3 = val1 * val2;
+          } else if (opr === "**") {
+            val3 = val1v ** al2;
+          } else if (opr === "/") {
+            val3 = val1 / val2;
+          } else if (opr === "%") {
+            val3 = val1 % val2;
+          } else {
+            val3 = "연산자를 입력해 주세요.";
+          }
+        } else {
+          val3 = "값을 입력해 주세요.";
+        }
+
+        document.getElementById("result").value = val3;
+      }
 
       // [초기화] 버튼 클릭시 reset() 함수가 실행되도록 인라인 방식으로 미리 설정해 두었습니다.
       function reset() {}
