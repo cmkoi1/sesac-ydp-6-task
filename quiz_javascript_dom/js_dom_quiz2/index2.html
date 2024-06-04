@@ -31,16 +31,21 @@
       let submit = document.querySelector("form button");
       let commentList = document.querySelector(".comment-list");
 
-      submit.addEventListener("click", function(event){
+      submit.addEventListener("click", function (event) {
         event.preventDefault();
 
-        let userId = document.getElementById("userid").value;
-      let comment = document.getElementById("comment").value;
+        let userId = document.getElementById("userid");
+        let comment = document.getElementById("comment");
 
         let li = document.createElement("li");
-        li.textContent =`${userId} - ${comment}`;
-        commentList.appendChild(li);
-      })
+        li.textContent = `${userId.value} - ${comment.value}`;
+
+        if(userId.value && comment.value){
+          commentList.appendChild(li);
+          userId.value = '';
+          comment.value = '';
+        }
+      });
     </script>
   </body>
 </html>

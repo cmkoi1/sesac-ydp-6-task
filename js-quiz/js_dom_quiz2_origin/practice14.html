@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습 14. 방명록 만들기</title>
+  </head>
+  <body>
+    <h1>여기는 방명록!!</h1>
+    <form>
+      <label for="writer">작성자</label>
+      <input type="text" id="writer" autocomplete="off" />
+      <br />
+      <br />
+
+      <label for="content">내용</label>
+      <input type="text" id="content" style="width: 500px" autocomplete="off" />
+      <br />
+      <br />
+
+      <button type="button" onclick="writeNote();">등록</button>
+    </form>
+
+    <br />
+    <br />
+
+    <table id="table" border="1" cellpadding="10" cellspacing="1">
+      <tr>
+        <th>번호</th>
+        <th>작성자</th>
+        <th>내용</th>
+        <th>작성일</th>
+      </tr>
+      <!-- 
+        <tr>
+          <td>번호 cell</td>
+          <td>작성자 cell</td>
+          <td>내용 cell</td>
+          <td>작성일 cell</td>
+        </tr>
+      -->
+    </table>
+
+    <script>
+      function writeNote() {
+        let name = document.getElementById('writer').value; // name input 값 가져오기
+        let content = document.getElementById('content').value; // conent input 값 가져오기
+
+        let table = document.getElementById('table'); // table 요소 선택
+        let tr = document.createElement('tr'); // tr 생성 (td, td, td, td 넣기 위함)
+
+        // 번호 cell 만들기
+        let tdNumber = document.createElement('td');
+        tdNumber.innerHTML = document.querySelectorAll('tr').length;
+
+        // 작성자 cell 만들기
+        let tdWriter = document.createElement('td');
+        tdWriter.innerText = name;
+
+        // 내용 cell 만들기
+        let tdContent = document.createElement('td');
+        tdContent.innerText = content;
+
+        // 작성일 cell 만들기
+        let tdDate = document.createElement('td');
+        let now = new Date();
+        tdDate.innerText = `${now.getFullYear()}-${
+          now.getMonth() + 1
+        }-${now.getDate()} ${now.getHours()}:${now.getMinutes()}`;
+
+        // tr에 위에서 만든 4개의 td 추가
+        tr.append(tdNumber, tdWriter, tdContent, tdDate);
+
+        // table에 tr 추가
+        table.append(tr);
+
+        // input 창 초기화
+        document.getElementById('writer').value = '';
+        document.getElementById('content').value = '';
+      }
+    </script>
+  </body>
+</html>

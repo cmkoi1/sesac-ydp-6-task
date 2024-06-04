@@ -53,8 +53,8 @@
         let tdDate = document.createElement("td");
 
         let table = document.getElementById("table");
-        let writer = document.getElementById("writer").value;
-        let content = document.getElementById("content").value;
+        let writer = document.getElementById("writer");
+        let content = document.getElementById("content");
 
         let now = new Date();
 
@@ -65,14 +65,19 @@
         let minutes = ("0" + now.getMinutes()).slice(-2);
         let formatteDate = `${year}-${month}-${day} ${hours}:${minutes}`;
 
-        tdName.textContent = writer;
-        tdContent.textContent = content;
+        tdName.textContent = writer.value;
+        tdContent.textContent = content.value;
         tdDate.textContent = formatteDate;
 
-        table.appendChild(tr);
-        tr.appendChild(tdName);
-        tr.appendChild(tdContent);
-        tr.appendChild(tdDate);
+        if (writer.value && content.value) {
+          table.appendChild(tr);
+          tr.appendChild(tdName);
+          tr.appendChild(tdContent);
+          tr.appendChild(tdDate);
+
+          writer.value = "";
+          content.value = "";
+        }
       }
     </script>
   </body>
